@@ -1,0 +1,13 @@
+{
+  "symbol": "GLD",
+  "side": "buy",
+  "date": "2026-10-26",
+  "setup": "orb",
+  "entry": 367.86,
+  "entry_time": "10:20 AM",
+  "stop": 367.02,
+  "target": 369.54,
+  "opening_range": { "minutes": 15 },
+  "stop_rule": "or_mid",
+  "interval": "5m"
+}
