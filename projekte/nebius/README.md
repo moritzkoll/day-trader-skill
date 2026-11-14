@@ -1,0 +1,24 @@
+# Nebius Tag für Tag
+
+Zerlegt jeden Handelstag einer US-Aktie (Standard: Nebius, NBIS) in
+5-Minuten-Kerzen und wertet ihn aus: Lücke zur Eröffnung, Hoch und Tief mit
+Uhrzeit, Ausbruch aus den ersten 15 Minuten, VWAP, Volumen und das
+Tagesmuster.
+
+```bash
+cd projekte/nebius
+python3 tagesanalyse.py                 # NBIS, ca. 60 Handelstage (mehr hat Yahoo nicht)
+python3 tagesanalyse.py --symbol CRWV   # andere Aktie
+python3 tagesanalyse.py --tage 10       # nur die letzten 10 Tage
+```
+
+Ergebnisse in `ausgabe/`:
+
+| Datei | Inhalt |
+|---|---|
+| `NBIS_bericht.md` | Zusammenfassung, Muster und eine Zeile pro Tag |
+| `NBIS_tage.csv` | alle Kennzahlen pro Tag (Excel, Semikolon) |
+| `NBIS_kerzen.csv` | jede 5-Minuten-Kerze mit deutscher und New Yorker Uhrzeit |
+
+Nur Python-Standardbibliothek. Kurse: Yahoo Finance (kostenlos, inoffiziell,
+leicht verzögert). Keine Anlageberatung.
