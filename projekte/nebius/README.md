@@ -41,3 +41,12 @@ python3 ls_tagesanalyse.py   # wertet alle gesammelten Tage aus -> ausgabe/LS_NB
   schon vorher passiert ist.
 - Tagesschlusskurse bei L&S reichen bis 2011 zurück, Minutenkurse nur ab dem
   ersten Sammeltag.
+
+## Test „Start 23:00→7:30, Einstieg 8:00, Ausstieg 21:30“ – Stand 14.11.2026
+
+`test_0800_2130.py` und `ausgabe/UNGUELTIG_test_0800_2130_tage.csv` sind **nicht
+verlässlich**: Der L&S-Kurs um 7:30 Uhr folgt dem US-Nachthandel (2:00–10:00 Uhr
+deutscher Zeit), der in den Yahoo-Daten fehlt. An rund einem Drittel der Tage
+kommt deshalb die falsche Seite (LONG statt SHORT oder umgekehrt) heraus,
+z. B. am 13.11.2026. Ein sauberer Test geht nur mit echten L&S-Kursen, die ab
+jetzt mit `ls_sammeln.py` gesammelt werden.
