@@ -22,3 +22,22 @@ Ergebnisse in `ausgabe/`:
 
 Nur Python-Standardbibliothek. Kurse: Yahoo Finance (kostenlos, inoffiziell,
 leicht verzögert). Keine Anlageberatung.
+
+## Lang & Schwarz (Euro, ab 14.11.2026)
+
+L&S (ls-tc.de) zeigt Minutenkurse nur für den laufenden Tag. Deshalb wird ab
+jetzt jeden Abend gesammelt:
+
+```bash
+python3 ls_sammeln.py        # holt den heutigen Tag nach ls_daten/NBIS/<Datum>.json
+python3 ls_tagesanalyse.py   # wertet alle gesammelten Tage aus -> ausgabe/LS_NBIS_*
+```
+
+- Kurse sind **Mittelkurse in Euro** (zwischen Geld- und Briefkurs), ohne Volumen.
+- Jeder Tag wird in drei Abschnitte geteilt: **vor US-Start** (L&S-Handel ab
+  7:30), **US-Handel** (15:30–22:00, zur Zeitumstellung eine Stunde früher)
+  und **Nachbörse** (bis 23:00).
+- Daraus sieht man z. B., wie viel der Kurslücke zur US-Eröffnung bei L&S
+  schon vorher passiert ist.
+- Tagesschlusskurse bei L&S reichen bis 2011 zurück, Minutenkurse nur ab dem
+  ersten Sammeltag.
